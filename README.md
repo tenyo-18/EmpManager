@@ -12,7 +12,7 @@ To build the project run the below command in project's root folder assuming mav
 ```
 mvn clean install
 ```
-Running the project (feel free to launch it via Intellij)
+Running the project (feel free to launch it via Intellij or any IDE after importing the pom.xml as a Project)
 ```
 cd target && java -jar EmpManager-0.0.1-SNAPSHOT.jar
 ```
