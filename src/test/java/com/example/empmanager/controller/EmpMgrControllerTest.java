@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = EmpManagerApplication.class)
-@AutoConfigureMockMvc
+@AutoConfigureMockMvc(addFilters = false)
 public class EmpMgrControllerTest {
 
   @Autowired private MockMvc mockMvc;

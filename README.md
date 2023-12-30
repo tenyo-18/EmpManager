@@ -19,34 +19,32 @@ cd target && java -jar EmpManager-0.0.1-SNAPSHOT.jar
 
 ## Authentication
 
-The project supports in memory authentication and there's an endpoint to perform a login request. There's already an user configured as admin with the following username and pass.
+The project supports in memory authentication via /login endpoint. Once logged in successfully you should be able to 
+execute the /POST and /GET apis as shown below
 
 ```
-curl -i -X POST -d username=admin -d password=admin -c /tmp/cookies.txt \
-http://localhost:8080/login
+curl -i -X POST -d username=admin -d password=admin http://localhost:8080/login
 
 ```
 
-The above request returns 200 and a cookie to be used to access the resources of the API.
 
-## API documentation
+## REST API
 Application exposes following REST endpoints.
 
-| Http method | Endpoint                                               | Description                                                  |
-|-------------|--------------------------------------------------------|--------------------------------------------------------------|
-| POST        | /api/employees                                         | Creates a new employee hierarchy                             |
+| Http method | Endpoint                                               | Description                                                |
+|-------------|--------------------------------------------------------|------------------------------------------------------------|
+| POST        | /api/employees                                         | Create an employee hierarchy                               |
 | GET         | /api/employees/supervisors?name={name}&levels={levels} | Retrieves the employee's supervisor for the number of levels |
 
 
 ### POST /api/employees
-
-Creates a new employee hierarchy
 
 Sample request:
 ```json
 {
     "Pete": "Nick",
     "Barbara": "Nick",
+    "Rahul" : "Nick",
     "Nick": "Sophie",
     "Sophie": "Jonas"
 }
@@ -59,13 +57,13 @@ Sample success response with status code 201:
 		"Sophie": {
 			"Nick": {
 				"Pete": {},
+                "Rahul": {},
 				"Barbara": {}
 			}
 		}
 	}
 }
 ```
-
 
 ### POST /api/employees/supervisors?name={name}&levels={levels}
 
