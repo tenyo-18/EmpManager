@@ -17,6 +17,14 @@ spec:
         app: web
     spec:
       replicas: 4
+      env:
+        - name: DATABASE_HOST #Using ConfigMaps would be more cleaner
+          value: db.chosendb.com  #replace with DB Connection string different from H2 in memory solution
+        - name: API_KEY #API KEY if any
+          valueFrom:
+            secretKeyRef:
+              name: my-secret #secrets
+              key: api-key
       resources:
         limits:
           memory: "2G"  # Maximum memory allowed
