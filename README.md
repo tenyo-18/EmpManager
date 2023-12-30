@@ -65,7 +65,7 @@ Sample success response with status code 201:
 }
 ```
 
-### POST /api/employees/supervisors?name={name}&levels={levels}
+### GET /api/employees/supervisors?name={name}&levels={levels}
 
 Retrieves the employee's managers upto a given level
 
